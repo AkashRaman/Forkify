@@ -2,9 +2,9 @@
 45/home/akash/Desktop/Forkify/package-lock.json1661677568649735274 0
 50/home/akash/Desktop/Forkify/dist/index.62406edb.js1661677298426988950 0
 50/home/akash/Desktop/Forkify/dist/logo.726d37a8.png1661967737739693264 0
-50/home/akash/Desktop/Forkify/dist/index.e37f48ea.js1661967825334279191 0
+50/home/akash/Desktop/Forkify/dist/index.e37f48ea.js1661969456310315033 0
 51/home/akash/Desktop/Forkify/dist/icons.dfd7a6db.svg1661967737735693327 0
-54/home/akash/Desktop/Forkify/dist/index.e37f48ea.js.map1661967825334279191 0
+54/home/akash/Desktop/Forkify/dist/index.e37f48ea.js.map1661969456314315097 0
 54/home/akash/Desktop/Forkify/dist/index.62406edb.js.map1661677298426988950 0
 43/home/akash/Desktop/Forkify/dist/index.html1661967737735693327 0
 53/home/akash/Desktop/Forkify/dist/favicon.8b2f57bf.png1661967737775692696 0
@@ -18,9 +18,9 @@
 54/home/akash/Desktop/Forkify/src/js/views/recipeView.js1661967152814652570 0
 40/home/akash/Desktop/Forkify/src/js/views1661960176643025607 1
 45/home/akash/Desktop/Forkify/src/js/helpers.js1661932330193149464 0
-48/home/akash/Desktop/Forkify/src/js/controller.js1661966895379175321 0
-43/home/akash/Desktop/Forkify/src/js/model.js1661951448123441544 0
-44/home/akash/Desktop/Forkify/src/js/config.js1661920751135830423 0
+48/home/akash/Desktop/Forkify/src/js/controller.js1661969456182313005 0
+43/home/akash/Desktop/Forkify/src/js/model.js1661969196622340148 0
+44/home/akash/Desktop/Forkify/src/js/config.js1661968677292004136 0
 46/home/akash/Desktop/Forkify/src/sass/main.scss1661004926906408000 0
 47/home/akash/Desktop/Forkify/src/sass/_base.scss1661004926906408000 0
 53/home/akash/Desktop/Forkify/src/sass/_components.scss1661004926906408000 0
@@ -5107,7 +5107,7 @@
 70/home/akash/Desktop/Forkify/node_modules/entities/lib/maps/legacy.json1661677299346955335 0
 72/home/akash/Desktop/Forkify/node_modules/caniuse-lite/data/regions/LY.js1661677299238959279 0
 56/home/akash/Desktop/Forkify/node_modules/detect-libc/bin1661677299338955627 1
-32/home/akash/Desktop/Forkify/dist1661967825334279191 1
+32/home/akash/Desktop/Forkify/dist1661969456314315097 1
 72/home/akash/Desktop/Forkify/node_modules/caniuse-lite/data/regions/GN.js1661677299238959279 0
 66/home/akash/Desktop/Forkify/node_modules/core-js/es/array/slice.js1661677299258958549 0
 69/home/akash/Desktop/Forkify/node_modules/core-js/actual/array/from.js1661677299246958987 0

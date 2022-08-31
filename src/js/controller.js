@@ -7,9 +7,9 @@ import resultsView from './views/resultsView.js';
 import 'core-js/stable';
 import 'regenerator-runtime/runtime';
 
-if(module.hot) {
-  module.hot.accept();
-}
+// if(module.hot) {
+//   module.hot.accept();
+// }
 
 ///////////////////////////////////////
 
@@ -46,12 +46,11 @@ const controlSearchResults = async () => {
 
     resultsView.renderSpinner();
     await model.loadSearchResults(query);
-    const {results} = model.state.search;
 
     // 3) Render Results
-    resultsView.render(results);
+    resultsView.render(model.getSearchResultsPage());
   } catch(err){
-
+    resultsView.renderError(err.message);
   }
 }
 controlSearchResults()
