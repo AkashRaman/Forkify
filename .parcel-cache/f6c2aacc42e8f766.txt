@@ -1,25 +1,25 @@
-7646
+7647
 45/home/akash/Desktop/Forkify/package-lock.json1661677568649735274 0
 50/home/akash/Desktop/Forkify/dist/index.62406edb.js1661677298426988950 0
-50/home/akash/Desktop/Forkify/dist/logo.726d37a8.png1661967737739693264 0
-50/home/akash/Desktop/Forkify/dist/index.e37f48ea.js1661969456310315033 0
-51/home/akash/Desktop/Forkify/dist/icons.dfd7a6db.svg1661967737735693327 0
-54/home/akash/Desktop/Forkify/dist/index.e37f48ea.js.map1661969456314315097 0
+50/home/akash/Desktop/Forkify/dist/logo.726d37a8.png1662040688467058053 0
+50/home/akash/Desktop/Forkify/dist/index.e37f48ea.js1662049924061979587 0
+51/home/akash/Desktop/Forkify/dist/icons.dfd7a6db.svg1662040688487056517 0
+54/home/akash/Desktop/Forkify/dist/index.e37f48ea.js.map1662049924065979435 0
 54/home/akash/Desktop/Forkify/dist/index.62406edb.js.map1661677298426988950 0
-43/home/akash/Desktop/Forkify/dist/index.html1661967737735693327 0
-53/home/akash/Desktop/Forkify/dist/favicon.8b2f57bf.png1661967737775692696 0
-51/home/akash/Desktop/Forkify/dist/index.f7626f62.css1661967737735693327 0
-55/home/akash/Desktop/Forkify/dist/index.f7626f62.css.map1661967737739693264 0
+43/home/akash/Desktop/Forkify/dist/index.html1662040688467058053 0
+53/home/akash/Desktop/Forkify/dist/favicon.8b2f57bf.png1662040688495055902 0
+51/home/akash/Desktop/Forkify/dist/index.f7626f62.css1662040688471057747 0
+55/home/akash/Desktop/Forkify/dist/index.f7626f62.css.map1662040688471057747 0
 56/home/akash/Desktop/Forkify/forkify-flowchart-part-1.png1661004926898411000 0
 39/home/akash/Desktop/Forkify/.prettierrc1661677298426988950 0
 40/home/akash/Desktop/Forkify/package.json1661677299430952267 0
 38/home/akash/Desktop/Forkify/index.html1661966614372182335 0
-55/home/akash/Desktop/Forkify/src/js/views/resultsView.js1661967397188427480 0
-54/home/akash/Desktop/Forkify/src/js/views/recipeView.js1661967152814652570 0
-40/home/akash/Desktop/Forkify/src/js/views1661960176643025607 1
+55/home/akash/Desktop/Forkify/src/js/views/resultsView.js1662049697187716623 0
+54/home/akash/Desktop/Forkify/src/js/views/recipeView.js1662049678388645397 0
+40/home/akash/Desktop/Forkify/src/js/views1662039501389212173 1
 45/home/akash/Desktop/Forkify/src/js/helpers.js1661932330193149464 0
-48/home/akash/Desktop/Forkify/src/js/controller.js1661969456182313005 0
-43/home/akash/Desktop/Forkify/src/js/model.js1661969196622340148 0
+48/home/akash/Desktop/Forkify/src/js/controller.js1662049923821988665 0
+43/home/akash/Desktop/Forkify/src/js/model.js1662046887091741778 0
 44/home/akash/Desktop/Forkify/src/js/config.js1661968677292004136 0
 46/home/akash/Desktop/Forkify/src/sass/main.scss1661004926906408000 0
 47/home/akash/Desktop/Forkify/src/sass/_base.scss1661004926906408000 0
@@ -5107,7 +5107,7 @@
 70/home/akash/Desktop/Forkify/node_modules/entities/lib/maps/legacy.json1661677299346955335 0
 72/home/akash/Desktop/Forkify/node_modules/caniuse-lite/data/regions/LY.js1661677299238959279 0
 56/home/akash/Desktop/Forkify/node_modules/detect-libc/bin1661677299338955627 1
-32/home/akash/Desktop/Forkify/dist1661969456314315097 1
+32/home/akash/Desktop/Forkify/dist1662049924069979284 1
 72/home/akash/Desktop/Forkify/node_modules/caniuse-lite/data/regions/GN.js1661677299238959279 0
 66/home/akash/Desktop/Forkify/node_modules/core-js/es/array/slice.js1661677299258958549 0
 69/home/akash/Desktop/Forkify/node_modules/core-js/actual/array/from.js1661677299246958987 0
@@ -6314,7 +6314,7 @@
 71/home/akash/Desktop/Forkify/node_modules/core-js/internals/is-object.js1661677299294957234 0
 83/home/akash/Desktop/Forkify/node_modules/caniuse-lite/data/features/magnetometer.js1661677299226959717 0
 65/home/akash/Desktop/Forkify/node_modules/@babel/highlight/LICENSE1661677298430988804 0
-48/home/akash/Desktop/Forkify/src/js/views/View.js1661967825238280774 0
+48/home/akash/Desktop/Forkify/src/js/views/View.js1662049795139204249 0
 91/home/akash/Desktop/Forkify/node_modules/lmdb/dependencies/lmdb/libraries/liblmdb/chacha8.h1661677299362954750 0
 92/home/akash/Desktop/Forkify/node_modules/lmdb/dependencies/lmdb/libraries/liblmdb/mdb_dump.c1661677299362954750 0
 92/home/akash/Desktop/Forkify/node_modules/lmdb/dependencies/lmdb/libraries/liblmdb/mdb_stat.c1661677299362954750 0
@@ -6471,6 +6471,7 @@
 66/home/akash/Desktop/Forkify/node_modules/domutils/lib/stringify.js1661677299342955480 0
 72/home/akash/Desktop/Forkify/node_modules/domutils/lib/traversal.d.ts.map1661677299342955480 0
 64/home/akash/Desktop/Forkify/node_modules/domutils/lib/feeds.d.ts1661677299342955480 0
+58/home/akash/Desktop/Forkify/src/js/views/paginationView.js1662049703319418321 0
 74/home/akash/Desktop/Forkify/node_modules/css-tree/lib/syntax/config/mix.js1661677299330955919 0
 66/home/akash/Desktop/Forkify/node_modules/domutils/lib/helpers.d.ts1661677299342955480 0
 60/home/akash/Desktop/Forkify/node_modules/browserslist/cli.js1661677299214960155 0
@@ -6799,7 +6800,7 @@
 70/home/akash/Desktop/Forkify/node_modules/css-tree/lib/lexer/generic.js1661677299330955919 0
 68/home/akash/Desktop/Forkify/node_modules/css-tree/lib/lexer/Lexer.js1661677299330955919 0
 77/home/akash/Desktop/Forkify/node_modules/css-tree/lib/lexer/generic-urange.js1661677299330955919 0
-51/home/akash/Desktop/Forkify/dist/icons.21bad73c.svg1661967737775692696 0
+51/home/akash/Desktop/Forkify/dist/icons.21bad73c.svg1662040688487056517 0
 69/home/akash/Desktop/Forkify/node_modules/core-js/actual/string/sup.js1661677299254958695 0
 75/home/akash/Desktop/Forkify/node_modules/mdn-data/css/selectors.schema.json1661677299374954312 0
 81/home/akash/Desktop/Forkify/node_modules/core-js/modules/es.symbol.constructor.js1661677299306956795 0

@@ -4,6 +4,7 @@ export default class View {
     // Variable(s)
 
     _data;
+    icons = icons;
 
     // Clearing Feild 
         
@@ -20,7 +21,6 @@ export default class View {
     // Rendering Functions
         
     render(data) {
-        console.log(data);
         if(!data || (Array.isArray(data) && data.length === 0)) return this.renderError();
 
         this._data = data;
@@ -53,7 +53,7 @@ export default class View {
         return `
         <div class="spinner">
         <svg>
-            <use href="${icons}#icon-loader"></use>
+            <use href="${this.icons}#icon-loader"></use>
         </svg>
         </div>
         `
@@ -64,7 +64,7 @@ export default class View {
         <div class="message">
           <div>
             <svg>
-              <use href="${icons}#icon-smile"></use>
+              <use href="${this.icons}#icon-smile"></use>
             </svg>
           </div>
           <p>${msg}</p>
@@ -76,7 +76,7 @@ export default class View {
         <div class="error">
           <div>
             <svg>
-              <use href="${icons}#icon-alert-triangle"></use>
+              <use href="${this.icons}#icon-alert-triangle"></use>
             </svg>
           </div>
           <p>${msg}</p>

@@ -1,6 +1,5 @@
 import View from './View.js';
 
-import icons from 'url:../../img/icons.svg';
 import {Fraction} from 'fractional';
 
 class RecipeView extends View {
@@ -24,14 +23,14 @@ class RecipeView extends View {
       <div class="recipe__details">
         <div class="recipe__info">
           <svg class="recipe__info-icon">
-            <use href="${icons}#icon-clock"></use>
+            <use href="${this.icons}#icon-clock"></use>
           </svg>
           <span class="recipe__info-data recipe__info-data--minutes">${this._data.cookingTime}</span>
           <span class="recipe__info-text">minutes</span>
         </div>
         <div class="recipe__info">
           <svg class="recipe__info-icon">
-            <use href="${icons}#icon-users"></use>
+            <use href="${this.icons}#icon-users"></use>
           </svg>
           <span class="recipe__info-data recipe__info-data--people">${this._data.servings}</span>
           <span class="recipe__info-text">servings</span>
@@ -39,12 +38,12 @@ class RecipeView extends View {
           <div class="recipe__info-buttons">
             <button class="btn--tiny btn--increase-servings">
               <svg>
-                <use href="${icons}#icon-minus-circle"></use>
+                <use href="${this.icons}#icon-minus-circle"></use>
               </svg>
             </button>
           <button class="btn--tiny btn--increase-servings">
             <svg>
-              <use href="${icons}#icon-plus-circle"></use>
+              <use href="${this.icons}#icon-plus-circle"></use>
             </svg>
           </button>
         </div>
@@ -52,7 +51,7 @@ class RecipeView extends View {
 
       <button class="btn--round">
         <svg class="">
-          <use href="${icons}#icon-bookmark-fill"></use>
+          <use href="${this.icons}#icon-bookmark-fill"></use>
         </svg>
       </button>
     </div>
@@ -60,7 +59,7 @@ class RecipeView extends View {
       <div class="recipe__ingredients">
             <h2 class="heading--2">Recipe ingredients</h2>
             <ul class="recipe__ingredient-list">
-              ${this._data.ingredients.map(this._generateMarkupIng).join('')}
+              ${this._data.ingredients.map(this._generateMarkupIng, this).join('')}
             </ul>
           </div>
 
@@ -78,7 +77,7 @@ class RecipeView extends View {
             >
               <span>Directions</span>
               <svg class="search__icon">
-                <use href="${icons}#icon-arrow-right"></use>
+                <use href="${this.icons}#icon-arrow-right"></use>
               </svg>
             </a>
           </div>
@@ -89,7 +88,7 @@ class RecipeView extends View {
       return `
       <li class="recipe__ingredient">
         <svg class="recipe__icon">
-          <use href="${icons}#icon-check"></use>
+          <use href="${this.icons}#icon-check"></use>
         </svg>
         <div class="recipe__quantity">${ing.quantity ? new Fraction(ing.quantity).toString() : ''}</div>
         <div class="recipe__description">
