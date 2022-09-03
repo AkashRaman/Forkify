@@ -194,6 +194,11 @@ body {
   margin-right: .3rem;
 }
 
+.btn--dissabled {
+  pointer-events: none;
+  opacity: 0;
+}
+
 .heading--2 {
   color: #f38e82;
   text-transform: uppercase;

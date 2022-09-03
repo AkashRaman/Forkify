@@ -82,4 +82,29 @@ export default class View {
           <p>${msg}</p>
         </div>`
       }
+
+      // Uppdating view
+
+      update(data) {
+        if(!data || (Array.isArray(data) && data.length === 0)) return this.renderError();
+
+        this._data = data;
+        const newMarkup = this._generateMarkup();
+
+        const newElements = Array.from(document.createRange().createContextualFragment(newMarkup).querySelectorAll('*'));
+        const curElements = Array.from(this._parentElement.querySelectorAll('*'));
+
+        newElements.forEach((newEl, i) => {
+          const curEl = curElements[i];
+
+          // Updating changed element only
+          if(newEl.isEqualNode(curEl)) return;
+
+          // updating text
+          if(newEl.firstChild?.nodeValue.trim() !== '') curEl.textContent = newEl.textContent;
+
+          // Updating Attributes
+          if(newEl.attributes !== curEl.attributes) Array.from(newEl.attributes).forEach(attr => curEl.setAttribute(attr.name, attr.value));
+        })
+      }
 }

@@ -579,13 +579,21 @@ const controlSearchResults = async ()=>{
     }
 };
 const controlPagination = (goToPage)=>{
-    // 1) Render Results
+    // 1) Render NEW Results
     (0, _resultsViewJsDefault.default).render(_modelJs.getSearchResultsPage(goToPage));
-    // 2) Render Pagination buttons
+    // 2) Render NEW Pagination buttons
     (0, _paginationViewJsDefault.default).render(_modelJs.state.search);
+};
+const controlServings = (newServings)=>{
+    //  Update Recipe Servings
+    _modelJs.updateServings(newServings);
+    const { recipe  } = _modelJs.state;
+    //  Update recipe view
+    (0, _recipeViewJsDefault.default).update(recipe);
 };
 const init = ()=>{
     (0, _recipeViewJsDefault.default).addHandlerRender(controlRecipes);
+    (0, _recipeViewJsDefault.default).addHandlerUpdateServings(controlServings);
     (0, _searchViewJsDefault.default).addHandlerSearch(controlSearchResults);
     (0, _paginationViewJsDefault.default).addHandlerClick(controlPagination);
 };
@@ -2290,6 +2298,7 @@ parcelHelpers.export(exports, "state", ()=>state);
 parcelHelpers.export(exports, "loadRecipe", ()=>loadRecipe);
 parcelHelpers.export(exports, "loadSearchResults", ()=>loadSearchResults);
 parcelHelpers.export(exports, "getSearchResultsPage", ()=>getSearchResultsPage);
+parcelHelpers.export(exports, "updateServings", ()=>updateServings);
 var _configJs = require("./config.js");
 var _helpersJs = require("./helpers.js");
 const state = {
@@ -2341,6 +2350,12 @@ const getSearchResultsPage = (page = state.search.page)=>{
     const start = (page - 1) * state.search.resultsPerPage;
     const end = page * state.search.resultsPerPage;
     return state.search.results.slice(start, end);
+};
+const updateServings = (newServings)=>{
+    state.recipe.ingredients.forEach((ing)=>{
+        ing.quantity = ing.quantity * newServings / state.recipe.servings;
+    });
+    state.recipe.servings = newServings;
 };
 
 },{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./config.js":"k5Hzs","./helpers.js":"hGI1E"}],"k5Hzs":[function(require,module,exports) {
@@ -2416,12 +2431,12 @@ class RecipeView extends (0, _viewJsDefault.default) {
           <span class="recipe__info-text">servings</span>
 
           <div class="recipe__info-buttons">
-            <button class="btn--tiny btn--increase-servings">
+            <button class="btn--tiny btn--update-servings ${this._data.servings - 1 === 0 ? "btn--dissabled" : ""}" data-update-to="${this._data.servings - 1}">
               <svg>
                 <use href="${this.icons}#icon-minus-circle"></use>
               </svg>
             </button>
-          <button class="btn--tiny btn--increase-servings">
+          <button class="btn--tiny btn--update-servings" data-update-to="${this._data.servings + 1}">
             <svg>
               <use href="${this.icons}#icon-plus-circle"></use>
             </svg>
@@ -2483,6 +2498,14 @@ class RecipeView extends (0, _viewJsDefault.default) {
             "hashchange",
             "load"
         ].forEach((event)=>window.addEventListener(event, hander));
+    }
+    addHandlerUpdateServings(handler) {
+        this._parentElement.addEventListener("click", (e)=>{
+            const btn = e.target.closest(".btn--update-servings");
+            if (!btn) return;
+            const { updateTo  } = btn.dataset;
+            if (+updateTo > 0) handler(+updateTo);
+        });
     }
 }
 exports.default = new RecipeView();
@@ -2811,6 +2834,23 @@ class View {
           </div>
           <p>${msg}</p>
         </div>`;
+    }
+    // Uppdating view
+    update(data) {
+        if (!data || Array.isArray(data) && data.length === 0) return this.renderError();
+        this._data = data;
+        const newMarkup = this._generateMarkup();
+        const newElements = Array.from(document.createRange().createContextualFragment(newMarkup).querySelectorAll("*"));
+        const curElements = Array.from(this._parentElement.querySelectorAll("*"));
+        newElements.forEach((newEl, i)=>{
+            const curEl = curElements[i];
+            // Updating changed element only
+            if (newEl.isEqualNode(curEl)) return;
+            // updating text
+            if (newEl.firstChild?.nodeValue.trim() !== "") curEl.textContent = newEl.textContent;
+            // Updating Attributes
+            if (newEl.attributes !== curEl.attributes) Array.from(newEl.attributes).forEach((attr)=>curEl.setAttribute(attr.name, attr.value));
+        });
     }
 }
 exports.default = View;
