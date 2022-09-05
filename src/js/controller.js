@@ -4,7 +4,9 @@ import recipeView from './views/recipeView.js';
 import searchView from './views/searchView.js';
 import resultsView from './views/resultsView.js';
 import paginationView from './views/paginationView.js';
-import {INITIAL_PAGINATION_PAGE} from './config.js';
+import bookmarksView from './views/bookmarksView.js';
+import addRecipeView from './views/addRecipeView.js';
+import {INITIAL_PAGE_NO} from './config.js';
 
 import 'core-js/stable';
 import 'regenerator-runtime/runtime';
@@ -22,22 +24,22 @@ const controlRecipes = async () => {
     
     if(!id) return;
     
-    // 0) Update results view
+    // 0) Update View
     
-    resultsView.update(model.getSearchResultsPage())
+    resultsView.update(model.getSearchResultsPage()) // Results update
+    bookmarksView.update(model.state.bookmarks) // Bookmark update
 
     // 1) Loading recipe
 
     recipeView.renderSpinner();
-    
     await model.loadRecipe(id);
-
     const {recipe} = model.state;
 
     // 2) Rendering recipe
-
     recipeView.render(recipe)
+
   } catch(err){
+    console.log(err);
     recipeView.renderError();
   }
 }
@@ -57,7 +59,7 @@ const controlSearchResults = async () => {
 
     // 3) Render Initial Results and Pagination button
 
-    controlPagination(INITIAL_PAGINATION_PAGE);
+    controlPagination(INITIAL_PAGE_NO);
     
   } catch(err){
     resultsView.renderError(err.message);
@@ -82,18 +84,36 @@ const controlServings = (newServings) => {
 
 }
 
-const controlAddBookmark = () => {
+const controlChangeBookmark = () => {
   const {recipe} = model.state;
+
+  // 1) Add/Remove bookmarks
   if(!recipe.bookmarked) model.addBookmark(recipe);
   else model.deleteBookmark(recipe.id);
+
+  //  2) updata recipe
   recipeView.update(recipe)
+
+  // 3) render bookmarks
+  bookmarksView.render(model.state.bookmarks)
+}
+
+const controBookmarks = () => bookmarksView.render(model.state.bookmarks);
+
+const controlAddRecipe = (newRecipe) => {
+  console.log(newRecipe)
 }
 
 const init = () => {
+  // loading data
+  bookmarksView.addHandlerRender(controBookmarks)
+  
+  // event listeners
   recipeView.addHandlerRender(controlRecipes);
   recipeView.addHandlerUpdateServings(controlServings);
-  recipeView.addHandlerAddBookmark(controlAddBookmark);
+  recipeView.addHandlerChangeBookmark(controlChangeBookmark);
   searchView.addHandlerSearch(controlSearchResults);
   paginationView.addHandlerClick(controlPagination);
+  addRecipeView.addHandlerUpload(controlAddRecipe);
 }
 init();
