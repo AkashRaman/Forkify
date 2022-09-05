@@ -45,6 +45,10 @@ class PaginationView extends View{
         `
     }
 
+    loading() {
+        this._clear();
+    }
+
     addHandlerClick(handler) {
         this._parentElement.addEventListener('click', (e) => {
             const btn = e.target.closest('.btn--inline');

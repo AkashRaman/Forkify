@@ -86,8 +86,7 @@ export default class View {
       // Uppdating view
 
       update(data) {
-        if(!data || (Array.isArray(data) && data.length === 0)) return this.renderError();
-
+        if(!data || (Array.isArray(data) && data.length === 0)) return;
         this._data = data;
         const newMarkup = this._generateMarkup();
 
