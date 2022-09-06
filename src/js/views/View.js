@@ -1,7 +1,8 @@
 import icons from 'url:../../img/icons.svg';
 
 export default class View {
-    // Variable(s)
+
+    // Variables
 
     _data;
     icons = icons;
@@ -18,11 +19,20 @@ export default class View {
         this._parentElement.insertAdjacentHTML('afterbegin',markup);
     }
 
+    // Checking if data is not empty
+
+    _isNotData(data) {
+      return !data || (Array.isArray(data) && data.length === 0);
+    }
+
+
     // Rendering Functions
         
-    render(data, render = true) {
-        if(!data || (Array.isArray(data) && data.length === 0)) return this.renderError();
-        this._data = data;
+    render(data, render = true, initialization = true) {
+        if(initialization) {
+          if(this._isNotData(data)) return this.renderError();
+          this._data = data;
+        }
         const markup = this._generateMarkup();
         
         if(!render) return markup;
@@ -32,7 +42,7 @@ export default class View {
     };
 
     renderSpinner() {
-        const markup = this._genrateSpinner();
+        const markup = this._generateSpinner();
         this._clear();
         this._insert(markup);
     };
@@ -43,15 +53,9 @@ export default class View {
         this._insert(markup);
     }
 
-    renderMessage(message = this._message) {
-        const markup = this._generateMessage(message);
-        this._clear();
-        this._insert(markup);
-    }
-
     // Generating html function(s)
 
-    _genrateSpinner() {
+    _generateSpinner() {
         return `
         <div class="spinner">
         <svg>
@@ -60,18 +64,6 @@ export default class View {
         </div>
         `
     }
-
-    _generateMessage(msg) {
-        return `
-        <div class="message">
-          <div>
-            <svg>
-              <use href="${this.icons}#icon-smile"></use>
-            </svg>
-          </div>
-          <p>${msg}</p>
-        </div>`
-      }
   
       _generateError(msg) {
         return `

@@ -6,7 +6,7 @@ import resultsView from './views/resultsView.js';
 import paginationView from './views/paginationView.js';
 import bookmarksView from './views/bookmarksView.js';
 import addRecipeView from './views/addRecipeView.js';
-import {INITIAL_PAGE_NO} from './config.js';
+import { INITIAL_PAGE_NO , MODAL_CLOSE_SEC } from './config.js';
 
 import 'core-js/stable';
 import 'regenerator-runtime/runtime';
@@ -39,7 +39,6 @@ const controlRecipes = async () => {
     recipeView.render(recipe)
 
   } catch(err){
-    console.log(err);
     recipeView.renderError();
   }
 }
@@ -102,10 +101,34 @@ const controBookmarks = () => bookmarksView.render(model.state.bookmarks);
 
 const controlAddRecipe = async (newRecipe) => {
   try{
+    //  SHow loading spinner
+
+    addRecipeView.renderSpinner();
+
     // Upload new Recipe
     await model.uploadRecipe(newRecipe)
+    const {recipe} = model.state;
+
+    // render recipe
+    recipeView.render(recipe);
+
+    //Sucess Message
+    
+    addRecipeView.renderMessage();
+
+    //  Render bookmark view
+
+    bookmarksView.render(model.state.bookmarks);
+
+    // Change ID into URL
+
+    window.history.pushState(null, '', `#${recipe.id}`);
+
+    // close form window
+    setTimeout(() => {
+      addRecipeView.toggleWindow()
+    }, MODAL_CLOSE_SEC * 1000)
   } catch(err) {
-    console.error(err);
     addRecipeView.renderError(err.message)
   }
 }

@@ -8,28 +8,15 @@ const timeout = function (s) {
   });
 };
 
-export const getJSON = async (url) => {
-    try {
-      const fetchPro = fetch(url);
-        const res = await Promise.race([fetchPro, timeout(TIMEOUT_SEC)]);
-        const data = await res.json();
-        if(!res.ok) throw new Error(`Failed to fetch`);
-        return data;
-    } catch(err) {
-        throw err;
-    }
-    
-}
-
-export const sendJSON = async (url, uploadData) => {
+export const AJAX = async (url, uploadData = undefined) => {
   try {
-      const fetchPro = fetch(url, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(uploadData),
-      });
+    const fetchPro = uploadData ?  fetch(url, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(uploadData),
+    }) : fetch(url);
       const res = await Promise.race([fetchPro, timeout(TIMEOUT_SEC)]);
       const data = await res.json();
       if(!res.ok) throw new Error(`Failed to fetch`);
@@ -37,5 +24,4 @@ export const sendJSON = async (url, uploadData) => {
   } catch(err) {
       throw err;
   }
-  
 }
