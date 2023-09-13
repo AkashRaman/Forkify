@@ -2,11 +2,7 @@
   "name": "starter",
   "version": "1.0.0",
   "description": "",
- 
   "main": "index.js",
-  "scripts": {
-    "start": "parcel index.html"
-  
   "scripts": {
     "start": "parcel index.html",
     "prebuild-dev": "shx rm -rf dist/*",
@@ -16,27 +12,19 @@
     "push-gh-pages": "push-dir --dir=dist --branch=master --cleanup --verbose",
     "predeploy": "rm -rf dist && parcel build index.html --no-source-maps --public-url ./",
     "deploy": "gh-pages -d dist"
-  
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "core-js": "^3.24.1",
- 
     "fractional": "^1.0.0",
-  
-    "fracty": "^1.0.9",
-  
+    "fracty": "^1.0.11",
     "parcel": "^2.7.0",
     "regenerator-runtime": "^0.13.9"
   },
   "devDependencies": {
- 
-    "@parcel/transformer-sass": "^2.7.0"
-  
-    "@parcel/transformer-sass": "^2.7.0",
+    "@parcel/transformer-sass": "^2.9.3",
     "gh-pages": "^4.0.0",
     "shx": "^0.3.2"
-  
   }
 }

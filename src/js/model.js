@@ -48,8 +48,9 @@ export const loadSearchResults = async (query) => {
         state.search.query = query;
 
         const data = await AJAX(`${API_URL}?search=${query}&key=${KEY}`);
-        
+        console.log(data.data.recipes);
         state.search.results = data.data.recipes.map(rec => {
+            
             return {
                 id: rec.id,
                 title: rec.title,
@@ -58,6 +59,8 @@ export const loadSearchResults = async (query) => {
                 ...(rec.key && {key: rec.key})
             }
         })
+
+        console.log(state);
     } catch(err){
         throw err;
     }
@@ -104,8 +107,8 @@ export const deleteBookmark = (id) => {
 }
 
 const init = () => {
-    const storage = localStorage.getItem('bookmarks');
-    if(storage) state.bookmarks = JSON.parse(storage);
+    const bookmarks = localStorage.getItem('bookmarks');
+    if(bookmarks) state.bookmarks = JSON.parse(bookmarks);
 }
 init();
 

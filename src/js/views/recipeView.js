@@ -40,13 +40,13 @@ class RecipeView extends View {
                 <use href="${this.icons}#icon-minus-circle"></use>
               </svg>
             </button>
-          <button class="btn--tiny btn--update-servings" data-update-to="${this._data.servings + 1}">
-            <svg>
-              <use href="${this.icons}#icon-plus-circle"></use>
-            </svg>
-          </button>
+            <button class="btn--tiny btn--update-servings" data-update-to="${this._data.servings + 1}">
+              <svg>
+                <use href="${this.icons}#icon-plus-circle"></use>
+              </svg>
+            </button>
+          </div>
         </div>
-      </div>
 
       <div class="recipe__user-generated ${this._data.key ? '' : 'hidden'}">
         <svg>

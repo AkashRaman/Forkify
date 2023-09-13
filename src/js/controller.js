@@ -5,7 +5,7 @@ import searchView from './views/searchView.js';
 import resultsView from './views/resultsView.js';
 import paginationView from './views/paginationView.js';
 import bookmarksView from './views/bookmarksView.js';
-import addRecipeView from './views/addRecipeView.js';
+// import addRecipeView from './views/addRecipeView.js';
 import { INITIAL_PAGE_NO , MODAL_CLOSE_SEC } from './config.js';
 
 import 'core-js/stable';
@@ -99,39 +99,39 @@ const controlChangeBookmark = () => {
 
 const controBookmarks = () => bookmarksView.render(model.state.bookmarks);
 
-const controlAddRecipe = async (newRecipe) => {
-  try{
-    //  SHow loading spinner
+// const controlAddRecipe = async (newRecipe) => {
+//   try{
+//     //  SHow loading spinner
 
-    addRecipeView.renderSpinner();
+//     addRecipeView.renderSpinner();
 
-    // Upload new Recipe
-    await model.uploadRecipe(newRecipe)
-    const {recipe} = model.state;
+//     // Upload new Recipe
+//     await model.uploadRecipe(newRecipe)
+//     const {recipe} = model.state;
 
-    // render recipe
-    recipeView.render(recipe);
+//     // render recipe
+//     recipeView.render(recipe);
 
-    //Sucess Message
+//     //Sucess Message
     
-    addRecipeView.renderMessage();
+//     addRecipeView.renderMessage();
 
-    //  Render bookmark view
+//     //  Render bookmark view
 
-    bookmarksView.render(model.state.bookmarks);
+//     bookmarksView.render(model.state.bookmarks);
 
-    // Change ID into URL
+//     // Change ID into URL
 
-    window.history.pushState(null, '', `#${recipe.id}`);
+//     window.history.pushState(null, '', `#${recipe.id}`);
 
-    // close form window
-    setTimeout(() => {
-      addRecipeView.toggleWindow()
-    }, MODAL_CLOSE_SEC * 1000)
-  } catch(err) {
-    addRecipeView.renderError(err.message)
-  }
-}
+//     // close form window
+//     setTimeout(() => {
+//       addRecipeView.toggleWindow()
+//     }, MODAL_CLOSE_SEC * 1000)
+//   } catch(err) {
+//     addRecipeView.renderError(err.message)
+//   }
+// }
 
 const init = () => {
   // loading data
@@ -143,6 +143,6 @@ const init = () => {
   recipeView.addHandlerChangeBookmark(controlChangeBookmark);
   searchView.addHandlerSearch(controlSearchResults);
   paginationView.addHandlerClick(controlPagination);
-  addRecipeView.addHandlerUpload(controlAddRecipe);
+  // addRecipeView.addHandlerUpload(controlAddRecipe);
 }
 init();

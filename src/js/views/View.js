@@ -28,8 +28,8 @@ export default class View {
 
     // Rendering Functions
         
-    render(data, render = true, initialization = true) {
-        if(initialization) {
+    render(data, render = true, dynamic_render = true) {
+        if(dynamic_render) {
           if(this._isNotData(data)) return this.renderError();
           this._data = data;
         }
@@ -80,7 +80,7 @@ export default class View {
       // Uppdating view
 
       update(data) {
-        if(!data || (Array.isArray(data) && data.length === 0)) return;
+        if(this._isNotData(data)) return;
         this._data = data;
         const newMarkup = this._generateMarkup();
 
